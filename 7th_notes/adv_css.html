@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced CSS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        images = ["https://static0.srcdn.com/wordpress/wp-content/uploads/2020/11/master-shifu-kung-fu-panda.jpg?w=1600&h=900&fit=crop", "https://static0.srcdn.com/wordpress/wp-content/uploads/2019/12/Asuma-Sarutobi-In-His-Last-Naruto-Shippuden-Battle.jpg", "https://i0.wp.com/bedtimebossing.com/wp-content/uploads/2024/03/assassinationclassroom.png?fit=500%2C500&ssl=1"]
+        index = 0
+        showing = "none"
+        function show(){
+            if(showing == "none" ){
+                document.getElementById("hidden").style.display = "block"
+                showing = "block"
+                document.getElementById("button").innerHTML = "Show Less"
+            }else{
+                document.getElementById("hidden").style.display = "none"
+                showing = "none"
+                document.getElementById("button").innerHTML = "Show More"
+            }
+            
+        }
+
+        function change(){
+            document.getElementById("three").src = images[index]
+            index += 1
+            if (index >= images.length){
+                index = 0
+            }
+        }
+
+        function color(){
+            document.getElementById("left").style.color = document.getElementById("choice").value
+        }
+
+        function basic(){
+            document.getElementById("left").style.color = "black"
+            alert("The color has changed back!")
+        }
+
+    </script>
+</head>
+<body>
+    <h1 onmouseenter={color()} onmouseout={basic()}>Title</h1>
+    <input type="color" id="choice"/>
+    <div id="content-wrapper">
+    <div id="left">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus justo erat, aliquam a tempor in, efficitur et risus. Sed viverra viverra vehicula. Aliquam venenatis accumsan ex, ac malesuada nulla fermentum ut. Morbi fringilla ex lacus, ac fermentum nulla vehicula quis. Nam consequat gravida sapien, pretium ullamcorper purus porttitor sit amet. Morbi blandit lacinia congue. Quisque sodales ante mi, sed rutrum sapien egestas a. Praesent eget molestie ex. Aliquam dignissim, nulla a molestie posuere, augue magna scelerisque diam, non placerat eros nulla eu odio.</p>
+<br><br>
+<div id="hidden">
+<p>Cras hendrerit sollicitudin rutrum. In hac habitasse platea dictumst. Donec in consequat augue. Sed imperdiet cursus quam eget ultricies. Nunc risus metus, ullamcorper id leo a, scelerisque egestas magna. Ut ac nibh eget est lobortis elementum sed sit amet enim. Curabitur malesuada nibh et est tempor, eget varius velit luctus. Curabitur semper arcu elit, at eleifend est elementum in. Fusce at aliquet diam. Sed a fermentum sapien. Praesent convallis egestas risus, ac consectetur odio pellentesque in. Suspendisse aliquam a sem id aliquet. Cras bibendum mi id sagittis ultrices. Morbi bibendum nisi vitae erat tristique vestibulum.</p></div>
+<button id="button" onclick={show()}>Show More</button>
+    </div>
+    <div id="right">
+        <div id="img-wrapper">
+        <img id="one" alt="faces" src="https://images3.alphacoders.com/602/602660.jpg">
+        <img id="two" alt="koro sensei" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuda9CRtaaqG6EAlt9B5MqVNoPikS-AgQYwA&s">
+        <img id="three" alt="reading" onmouseover={change()} src="https://i0.wp.com/bedtimebossing.com/wp-content/uploads/2024/03/assassinationclassroom.png?fit=500%2C500&ssl=1">
+        </div>
+    
+    </div>
+    </div>
+</body>
+</html>
